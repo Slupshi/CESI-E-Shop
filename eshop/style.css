@@ -1,0 +1,201 @@
+body{
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* Login */
+#app{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    text-align: center;
+    background-color: #2C2F33;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    height: 95%;    
+}
+.blank{
+    height: 10%;
+}
+
+input{
+    width: 250px;
+    height: 30px;
+    border-radius: 10rem;
+    padding-left: 10px;
+}
+.smallButton{
+    background-color: transparent;
+    border: 0;
+    font-style: italic;
+    color: #97A9B4;
+}
+#forgotPWButton{
+    cursor: hand;
+}
+#createAccountButton{
+    cursor: hand;
+}
+#stopForgotPW{
+    cursor: hand;
+}
+#stopInscription{
+    cursor: hand;
+}
+.form-control{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+.input{
+    align-items: center;
+    margin: 10px;
+    padding-left: 15%;
+    padding-right: 15%;
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
+}
+.passwordInput{
+    font-size: larger;
+}
+#connectButton{
+    margin: 20px;
+}
+.validateButton{
+    margin-top: 30px;
+    border-radius: 10rem;
+    height: 50px;
+    width: 200px;
+    font-size: large;
+    font-weight: bold;
+    cursor: hand;
+}
+.errorMessage{
+    margin: 20px;
+    color: red;
+    font-weight: lighter;
+}
+.centralDiv{
+    border: 1px white solid;
+    border-radius: 5rem;
+    margin: 0 30px ;
+    padding-bottom: 20px;
+}
+
+.smallButtonDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Catalogue */
+#Catalogue{
+    position: relative;
+    top: -150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: hidden;
+}
+
+.shop{
+    background-color: #2C2F33;
+    height: fit-content;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+    overflow-y: auto;
+}
+
+.productsList{
+    list-style: none;
+    border: 1px solid white;
+    width: 95%;
+    height: fit-content;
+}
+
+.productItem{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: white;
+    border-radius: 10%;
+    margin: 20px;
+    width: 200px;
+    height: 350px;
+    padding: 10px;
+}
+
+.productItem span{
+    margin: 5px 15px 5px 0;
+}
+
+.productItem img{
+    align-self: center;
+    margin-bottom: 10px;
+}
+
+ul li{
+    display: inline-block;
+}
+
+.priceLabel{
+    font-style: italic;
+    font-weight: lighter;
+    background-color: greenyellow;
+    width:fit-content;
+    padding: 2px 5px;
+    border-radius: 30%;
+}
+
+.typeLabel{
+    font-weight: bold;
+    color: white;
+    background-color: rgb(149, 151, 3);
+    width:fit-content;
+    padding: 2px 5px;
+    border-radius: 20%;
+}
+
+/* Header */
+.header{
+    color: white;
+    border: 1px solid white;
+    height: 5%;
+    width: 100%;
+}
+
+.navbar{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar a{
+    text-decoration: none;
+    color: white;
+}
+
+/* Custom ScrollBar */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: grey;
+    border-radius: 10px;
+}
+
+
+
