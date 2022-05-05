@@ -1,6 +1,10 @@
 <?php
     session_start();    
     $errorMessage = "";
+    if(isset($_GET['message']))
+    {
+        $errorMessage = $_GET['message'];
+    }
 ?>
 
 

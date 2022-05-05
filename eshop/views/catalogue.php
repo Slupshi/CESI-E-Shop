@@ -26,8 +26,8 @@
                             <span><b><?php echo $product->Name; ?></b></span>
                             <span class="priceLabel"><?php echo $product->Price . ' €'; ?></span>
                             <span class="typeLabel"><?php echo $product->ProductType->Label(); ?></span>
-                            <span><?php echo $product->Description; ?></span>
-                            <button><span>Ajouter au panier</span></button>
+                            <span class="descriptionLabel"><?php echo $product->Description; ?></span>
+                            <button class="addCartButton"><span>Ajouter au panier</span></button>
                         </div>
                     </li>
                 <?php endforeach ?>

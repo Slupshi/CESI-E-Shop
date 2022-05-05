@@ -19,6 +19,6 @@ if (isset($_POST['username']) && isset($_POST['password'])){
         header("Location: /catalogue");
     }
     else {
-        //echo "Identifiant ou mot de passe incorrect";
+        header("Location: /login?message=Informations%20incorrectes");
     }
 }
