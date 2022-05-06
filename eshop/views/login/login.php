@@ -1,5 +1,5 @@
 <?php
-    session_start();    
+    session_start();
     $errorMessage = "";
     if(isset($_GET['message']))
     {
@@ -29,11 +29,11 @@
                         <div class="form-control">
                             <div class="input">
                                 <label for="loginID">Pseudo</label>
-                                <input id="loginID" name="username" type="text" placeholder="JuanCarlos69">
+                                <input id="loginID" name="username" type="text" placeholder="JuanCarlos69" required>
                             </div>                   
                             <div class="input">
                                 <label for="loginMDP">Mot de passe</label>
-                                <input class="passwordInput" name="password" id="loginMDP" type="password" placeholder="••••••••"> 
+                                <input class="passwordInput" name="password" id="loginMDP" type="password" placeholder="••••••••" required> 
                             </div>          
                         </div>  
                         <button type="submit" class="validateButton">Connexion</button>  

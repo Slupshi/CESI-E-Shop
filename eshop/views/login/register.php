@@ -25,19 +25,19 @@
                         <div class="form-control">
                             <div class="input">
                                 <label for="inscriptionPseudo">Pseudo</label>
-                                <input id="inscriptionPseudo" name="username" type="text" placeholder="JeanTitouanDu93">
+                                <input id="inscriptionPseudo" name="username" type="text" placeholder="JeanTitouanDu93" required>
                             </div>     
                             <div class="input">
                                 <label for="inscriptionMail">Mail</label>
-                                <input id="inscriptionMail" name="mail" type="text" placeholder="john.doe@outlook.com">
+                                <input id="inscriptionMail" name="mail" type="text" placeholder="john.doe@outlook.com" required>
                             </div>                 
                             <div class="input">
                                 <label for="inscriptionMDP">Mot de passe</label>
-                                <input class="passwordInput" name="password" id="inscriptionMDP" type="password" placeholder="••••••••"> 
+                                <input class="passwordInput" name="password" id="inscriptionMDP" type="password" placeholder="••••••••" required> 
                             </div>    
                             <div class="input">
                                 <label for="inscriptionConfirmMDP">Confirmation du mot de passe</label>
-                                <input class="passwordInput" name="confirmPW" id="inscriptionConfirmMDP" type="password" placeholder="••••••••"> 
+                                <input class="passwordInput" name="confirmPW" id="inscriptionConfirmMDP" type="password" placeholder="••••••••" required> 
                             </div>
                         </div>  
                         <button type="submit" class="validateButton">Valider</button>  

@@ -26,7 +26,7 @@
                         <div class="form-control">
                             <div class="input">
                                 <label for="forgotPWMail">Mail</label>
-                                <input id="forgotPWMail" type="text" placeholder="john.doe@outlook.com">
+                                <input id="forgotPWMail" type="text" placeholder="john.doe@outlook.com" required>
                             </div>    
                         </div>  
                         <button type="submit" class="validateButton">Envoyer</button>

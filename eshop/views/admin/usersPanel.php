@@ -27,9 +27,39 @@
                         <td><?php echo $user->Username ?></td>
                         <td><?php echo $user->Mail ?></td>
                         <td><?php echo $user->Role->Label() ?></td>
+                        <td>
+                            <div class="productItemButtons">
+                                <button id="<?php echo 'editButton ' . $user->Id; ?>" onclick="UserOnClick(this.id)"><img src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/30/000000/external-pen-interface-kiranshastry-lineal-kiranshastry.png"/></button>
+                                <button id="<?php echo 'deleteButton ' . $user->Id; ?>" onclick="UserOnClick(this.id)"><img src="https://img.icons8.com/ios/30/000000/delete--v1.png"/></button>
+                            </div>
+                        </td>
                     </tr>
                 <?php endforeach ?>
             </table>
-        </div>
+        </div>      
+        
+        <script type="application/javascript">
+
+            function UserOnClick(id)
+            {
+                let splitID = id.split(" ");
+                switch(splitID[0])
+                {
+                    case "editButton":
+                        var xmlHttp = new XMLHttpRequest();
+                        xmlHttp.open( "GET", "/editUser?id=" + splitID[1] , false );
+                        xmlHttp.send();
+                        break;
+                    case "deleteButton":
+                        var xmlHttp = new XMLHttpRequest();
+                        xmlHttp.open( "GET", "/deleteUser?id=" + splitID[1] , false );
+                        xmlHttp.send();
+                        location.reload();
+                        break;  
+                }
+            }
+
+        </script>
+
     </body>
 </html>

@@ -37,10 +37,16 @@
 			require_once 'eshop/controllers/AddProductController.php';
 			break;
 		case"/deleteProduct":
-				require_once 'eshop/controllers/DeleteProductController.php';
-				break;
+			require_once 'eshop/controllers/DeleteProductController.php';
+			break;
 		case"/users":
 			require_once 'eshop/views/admin/usersPanel.php';
+			break;
+		case"/deleteUser":
+			require_once 'eshop/controllers/DeleteUser.php';
+			break;
+		case"/editUser":
+			require_once 'eshop/views/admin/editUser.php';
 			break;
 		default:
 			http_response_code(404);

@@ -65,6 +65,11 @@
         return null;
     }
 
+    function DeleteUser(int $id)
+    {
+        GetDb()->prepare('DELETE FROM user WHERE User_Id = :id ')->execute(['id' => $id]);
+    }
+
     function GetUsers():array 
     {
         $db = GetDb();
@@ -201,6 +206,13 @@
             return false;
         }
         
+    }
+
+    function DeleteProduct(int $id)
+    {
+        $db = GetDb();
+        $stmt = $db->prepare('DELETE FROM product WHERE Pdct_Id = :id ');
+        $stmt->execute(['id' => $_GET['id'],]);
     }
 
     function UpdateProduct(Product $product)

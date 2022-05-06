@@ -15,9 +15,13 @@
         <div class="header">            
             <nav class="navbar">    
                 <span><b>E-Shop - <?php echo $user->Role->Label(); ?></b></span>            
-                <a href="/catalogue"><b>Catalogue</b></a>                
-                <a href="/addProduct"><b>Ajouter un produit</b></a>
-                <a href="/users"><b>Utilisateurs</b></a>
+                <a href="/catalogue"><b>Catalogue</b></a>  
+                <?php if($user->Role == Role::Vendor || $user->Role == Role::Administrator): ?>              
+                    <a href="/addProduct"><b>Ajouter un produit</b></a>
+                <?php endif ?>
+                <?php if($user->Role == Role::Administrator): ?>     
+                    <a href="/users"><b>Utilisateurs</b></a>
+                <?php endif ?>
                 <a href="/cart"><b>Panier</b></a>
                 <a href="/logout"><b>Logout</b></a>
             </nav>
