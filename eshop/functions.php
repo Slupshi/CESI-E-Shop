@@ -163,7 +163,7 @@
         return null;
     }
 
-    function GetProductsInCart(string $loggedUsername): array
+    function GetProductsInCart($loggedUsername): array
     {
         $db = GetDb();
         $userId = GetUserByName($loggedUsername);
@@ -174,7 +174,7 @@
 
         foreach($products as $product)
         {
-            $productsInCart = new Product(
+            $productsInCart[] = new Product(
                 $product['Pdct_Id'],
                 $product['Pdct_Name'],
                 $product['Pdct_Price']/100,

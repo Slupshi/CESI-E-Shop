@@ -12,6 +12,12 @@
         <link rel="shortcut icon" href="cart.png">
     </head>
     <body>
-        
+        <div>
+            <?php foreach($cart as $product): ?>
+                <div class="productItem">
+
+                </div>
+            <?php endforeach ?>
+        </div>
     </body>
 </html>
