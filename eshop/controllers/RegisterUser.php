@@ -7,6 +7,11 @@
     $password = $_POST['password'];
     $confirmPW = $_POST['confirmPW'];
 
-    RegisterUser($username, $mail, $password, $confirmPW);
-
-    header('Location: /login');
+    if(RegisterUser($username, $mail, $password, $confirmPW))
+    {
+        header('Location: /login?message=Compte%20Créé');
+    }
+    else
+    {
+        header('Location: /login?message=Erreur');
+    }

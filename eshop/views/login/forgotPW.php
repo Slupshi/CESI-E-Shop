@@ -22,7 +22,7 @@
 
                 <!-- ForgotPasswordForm -->           
                 <div >
-                    <form >
+                    <form action="" method="POST">
                         <div class="form-control">
                             <div class="input">
                                 <label for="forgotPWMail">Mail</label>

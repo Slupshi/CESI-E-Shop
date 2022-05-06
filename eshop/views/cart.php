@@ -1,7 +1,7 @@
 <?php 
     session_start();
     require_once '/xampp/htdocs/eshop/functions.php';
-    $cart = GetProductsInCart();
+    $cart = GetProductsInCart($_SESSION['loggedUser']);
 ?>
 
 <html lang="fr">

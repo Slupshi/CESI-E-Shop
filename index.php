@@ -30,6 +30,18 @@
 		case"/cart":
 			require_once 'eshop/views/cart.php';
 			break;
+		case"/addProduct":
+			require_once 'eshop/views/admin/productCreation.php';
+			break;
+		case"/createProduct":
+			require_once 'eshop/controllers/AddProductController.php';
+			break;
+		case"/deleteProduct":
+				require_once 'eshop/controllers/DeleteProductController.php';
+				break;
+		case"/users":
+			require_once 'eshop/views/admin/usersPanel.php';
+			break;
 		default:
 			http_response_code(404);
 			require_once 'eshop/views/404.php';

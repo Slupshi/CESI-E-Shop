@@ -16,7 +16,7 @@
         <link rel="shortcut icon"href="cart.png">
     </head>
 
-    <body>  
+    <body class="smallBody">  
         <div id="app">
             <div class="blank"></div>
             

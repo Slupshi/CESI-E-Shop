@@ -12,12 +12,12 @@
         );
     }
 
-    function RegisterUser($username, $mail, $password, $confirmPW) : void
+    function RegisterUser($username, $mail, $password, $confirmPW) : bool
     {
         if($username != null && $mail != null && $password != null && $confirmPW != null)
         {
             if($password != $confirmPW){
-                return;
+                return false;
             }
             try
             {
@@ -26,16 +26,17 @@
                 INSERT INTO user (User_Name, User_Password, User_Mail)
                 VALUES(:username, :password, :mail )");
                 $stmt->execute(['username' => $username, 'password' => $password, 'mail' => $mail]);
+                return true;
             }
             catch(PDOException $e)
             {
-                
+                return false;
             }
             
         }
         else
         {
-            return;
+            return false;
         }
         
     }
@@ -57,10 +58,30 @@
                 $user['User_Name'],
                 $user['User_Password'],
                 $user['User_Mail'],
+                ByteToUserType($user['User_Type']),
             );
         }
     
         return null;
+    }
+
+    function GetUsers():array 
+    {
+        $db = GetDb();
+        $stmt = $db->prepare('SELECT * FROM user');
+        $stmt->execute();
+
+        $users = $stmt->fetchAll();
+        foreach($users as $user){
+            $validUsers[] = new User (
+                $user['User_Id'],
+                $user['User_Name'],
+                $user['User_Password'],
+                $user['User_Mail'],
+                ByteToUserType($user['User_Type']),
+            );
+        }
+        return $validUsers;
     }
 
     function GetProducts(): array
@@ -99,10 +120,25 @@
         }
     }
 
+    function ByteToUserType(?int $byte = 0): Role
+    {
+        switch($byte)
+        {
+            case'0':
+                return Role::Customer;
+            case'1':
+                return Role::Administrator;
+            case'2':
+                return Role::Vendor;
+            default:
+                return Role::Customer;
+        }
+    }
+
     function GetUserByName(string $username): ?User
     {
         $db = GetDb();
-        $stmt = $db->prepare('SELECT * FROM user WHERE User_Name = :$username');
+        $stmt = $db->prepare('SELECT * FROM user WHERE User_Name = :username');
         $stmt->execute([
             'username' => $username,            
         ]);
@@ -115,16 +151,17 @@
                 $user['User_Name'],
                 $user['User_Password'],
                 $user['User_Mail'],
+                ByteToUserType($user['User_Type']),
             );
         }
 
         return null;
     }
 
-    function GetProductsInCart(): array
+    function GetProductsInCart(string $loggedUsername): array
     {
         $db = GetDb();
-        $userId = GetUserByName($_SESSION['loggedUser']);
+        $userId = GetUserByName($loggedUsername);
         $stmt = $db->prepare('SELECT * FROM panier WHERE User_Id = :userId');
         $stmt->execute(['userId' => $userId]);
 
@@ -142,4 +179,47 @@
             );
         }
         return $productsInCart;        
+    }
+
+    function CreateProduct(Product $product): bool
+    {
+        try
+        {
+            $db = GetDb();
+            $stmt = $db->prepare('INSERT INTO product (Pdct_Name, Pdct_Price, Pdct_Type, Pdct_Description, Pdct_Image) VALUES (:name , :price , :type , :description , :img );');
+            $stmt->execute([
+                'name' => $product->Name,
+                'price' => $product->Price,
+                'description' => $product->Description,
+                'type' => $product->ProductType->value,
+                'img' => $product->ImageURL,
+            ]);
+            return true;
+        }
+        catch(PDOException $e)
+        {
+            return false;
+        }
+        
+    }
+
+    function UpdateProduct(Product $product)
+    {
+        try
+        {
+            $db = GetDb();
+            $stmt = $db->prepare('UPDATE product SET Pdct_Name = :name , Pdct_Price = :price , Pdct_Type = :type , Pdct_Description = :description, Pdct_Image = :img ;');
+            $stmt->execute([
+                'name' => $product->Name,
+                'price' => $product->Price,
+                'description' => $product->Description,
+                'type' => $product->ProductType->value,
+                'img' => $product->ImageURL,
+            ]);
+
+        }
+        catch(PDOException $e)
+        {
+
+        }
     }
